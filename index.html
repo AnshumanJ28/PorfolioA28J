@@ -10,61 +10,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* Aurora glass — deep space backgrounds */
-    --bg:#0d1117;
-    --bg-panel:rgba(22,30,42,.45);
-    --bg-panel-hover:rgba(30,40,56,.65);
-    --bg-inset:rgba(255,255,255,.05);
+    /* Backgrounds */
+    --bg-primary: #0B0B0C;
+    --bg-secondary: #111214;
+    --bg-tertiary: #18191C;
 
-    /* Soft glass borders */
-    --border:rgba(255,255,255,.08);
-    --border-strong:rgba(255,255,255,.18);
+    /* Surfaces */
+    --surface-primary: #151618;
+    --surface-secondary: #1C1D20;
+    --surface-hover: #24262A;
 
-    /* Crisp text */
-    --text-primary:#F3F8FC;
-    --text-secondary:#AAB6C8;
-    --text-tertiary:#7C879B;
+    /* Glass */
+    --glass: rgba(244, 241, 235, 0.05);
+    --glass-hover: rgba(244, 241, 235, 0.08);
 
-    /* Aurora cyan — interactive accent (blue removed) */
-    --accent:#56CFE1;
-    --accent-dim:#2CA6A4;
+    /* Borders */
+    --border-light: #383A3F;
+    --border: #2B2D31;
+    --border-dark: #1D1F22;
 
-    /* Aurora cyan — secondary accent / glow */
-    --royal-light:#56CFE1;
-    --royal-light-soft:#8FE0EE;
-    --royal-light-dim:rgba(86,207,225,0.18);
-    --royal-light-line:rgba(86,207,225,0.4);
-    --royal-deep:#0d2b30;
-    --royal-deep-hover:#123a41;
+    /* Eyebrow badge variables */
+    --eyebrow-bg: rgba(16, 30, 24, 0.55);
+    --eyebrow-border: rgba(16, 185, 129, 0.25);
+    --eyebrow-color: var(--live);
 
-    /* Subtle divider for section rules */
-    --silver:rgba(255,255,255,.12);
+    /* Typography */
+    --text-primary: #F4F1EB;      /* Ivory */
+    --text-heading: #E8E4DD;
+    --text-secondary: #B6B2AA;    /* Warm Silver */
+    --text-muted: #8C8982;
+    --text-disabled: #5D5B57;
 
-    /* Aurora gold — editorial / decorative accent */
-    --gold:#E5BE4B;
-    --gold-soft:#F0D585;
-    --gold-dim:rgba(229,190,75,0.14);
-    --gold-line:rgba(229,190,75,0.35);
+    /* Accent */
+    --accent: #D4AF37;            /* Champagne Gold */
+    --accent-light: #E6C96B;
+    --accent-dark: #B08D2D;
 
-    /* Status colors */
-    --live:#78B87A;
-    --live-dim:rgba(120,184,122,0.14);
-    --warn:#D98B3F;
-    --warn-dim:rgba(217,139,63,0.14);
-    --stable:#AAB6C8;
-    --stable-dim:rgba(170,182,200,0.12);
+    /* Metallic */
+    --metal-light: #D9D9D6;
+    --metal: #B5B5B5;
+    --metal-dark: #7B7B7B;
 
-    /* Aurora glass surfaces */
-    --glass:rgba(22,30,42,.45);
-    --glass-hover:rgba(30,40,56,.65);
-    --glass-shadow:0 10px 40px rgba(0,0,0,.45);
-    --glass-shadow-hover:0 15px 50px rgba(0,0,0,.5), 0 0 30px rgba(86,207,225,.18);
+    /* Status */
+    --success: #00E676; /* Vibrant neon green */
+    --warning: #C99B4B;
+    --error: #A85656;
+
+    --chart-accent: var(--accent);
+
+    /* Buttons */
+    --button-primary-bg: #F4F1EB;
+    --button-primary-text: #0B0B0C;
+
+    --button-secondary-bg: transparent;
+    --button-secondary-text: #F4F1EB;
+    --button-secondary-border: #383A3F;
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.45);
+    --row-hover-bg: rgba(212, 175, 55, 0.05);
+
+    /* BMW-Inspired Luxury Triple Stripe */
+    --stripe-1: #F4F1EB;   /* Ivory */
+    --stripe-2: #B6B2AA;   /* Warm Silver */
+    --stripe-3: #D4AF37;   /* Champagne Gold */
+
+    /* Gradients */
+    --gradient-bg: linear-gradient(180deg, #0B0B0C 0%, #101214 100%);
+    --gradient-card: linear-gradient(180deg, #18191C 0%, #141517 100%);
+    --gradient-button: linear-gradient(180deg, #F4F1EB 0%, #DDD8CF 100%);
+
+    --button-hover-glow-1: rgba(212, 175, 55, 0.4);
+    --button-hover-glow-2: rgba(212, 175, 55, 0.22);
 
     --radius:18px;
     --font-display:'Plus Jakarta Sans', sans-serif;
     --font-body:'Inter', sans-serif;
     --font-mono:'JetBrains Mono', monospace;
     --max:1080px;
+
+    /* Compatibility Mappings to maintain structural layouts */
+    --bg: var(--bg-primary);
+    --bg-panel: var(--surface-primary);
+    --bg-panel-hover: var(--surface-hover);
+    --bg-inset: var(--surface-secondary);
+    --border-strong: var(--border-light);
+    --text-tertiary: var(--text-muted);
+    --accent-dim: var(--accent-dark);
+    --royal-light: var(--accent);
+    --royal-light-soft: var(--accent-light);
+    --royal-light-dim: rgba(212, 175, 55, 0.12);
+    --royal-light-line: var(--border-light);
+    --royal-deep: var(--bg-secondary);
+    --royal-deep-hover: var(--surface-primary);
+    --silver: var(--border);
+    --gold: var(--accent);
+    --gold-soft: var(--accent-light);
+    --gold-dim: rgba(212, 175, 55, 0.1);
+    --gold-line: var(--accent-dark);
+    --glass-shadow: var(--shadow);
+    --glass-shadow-hover: 0 15px 50px rgba(0,0,0,.5), 0 0 30px rgba(212, 175, 55, 0.18);
+    
+    /* Status maps */
+    --live: var(--success);
+    --live-dim: rgba(0, 230, 118, 0.15);
+    --warn: var(--warning);
+    --warn-dim: rgba(201, 155, 75, 0.14);
+    --stable: var(--text-secondary);
+    --stable-dim: rgba(182, 178, 170, 0.12);
   }
 
   *{ box-sizing:border-box; }
@@ -76,56 +130,72 @@
 
   body{
     margin:0;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(44,166,164,.12), transparent 40%),
-      radial-gradient(circle at 85% 75%, rgba(229,190,75,.08), transparent 40%),
-      linear-gradient(160deg,#090b10,#101722,#090b10);
-    background-attachment:fixed;
+    background: var(--bg-primary); /* Premium Matte Obsidian */
     color:var(--text-primary);
     font-family:var(--font-body);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
 
-  /* ---------- minimal line-art background ---------- */
-  #lineArt{
+  /* ---------- BMW M-inspired triple stripes ---------- */
+  .m-stripes{
+    display:inline-flex;
+    gap:2.5px;
+    height:14px;
+    align-items:stretch;
+    align-self:center;
+  }
+  .m-stripe{
+    width:3.5px;
+    transform:skewX(-20deg);
+    border-radius:1px;
+  }
+  .m-stripe.s1{ background:var(--stripe-1); }
+  .m-stripe.s2{ background:var(--stripe-2); }
+  .m-stripe.s3{ background:var(--stripe-3); }
+
+  /* ---------- vertical framing stripes (Sports Car Bold Racing style) ---------- */
+  .content-stripes{
     position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    z-index:0;
+    top:0;
+    bottom:0;
+    width:84px; /* 3 stripes of 20px + 2 gaps of 12px */
+    z-index:10;
+    display:flex;
+    gap:12px;
     pointer-events:none;
-    animation: lineDrift 16s ease-in-out infinite;
   }
-  #lineArt path{
-    fill:none;
-    stroke-linecap:round;
-    stroke-dasharray:5 46;
-    filter:url(#lineGlow);
-    animation: dashFlow 13s linear infinite;
+  .content-stripes.left{
+    left:calc(50% - 540px - 184px);
+    transform:skewX(8deg);
+    transform-origin:top center;
   }
-  #lineArt path:nth-of-type(even){
-    animation-duration:18s;
-    animation-direction:reverse;
+  .content-stripes.right{
+    left:auto;
+    right:calc(50% - 540px - 152px);
+    width:52px; /* 2 stripes of 20px + 1 gap of 12px */
+    transform:none;
   }
-  #lineArt path:nth-of-type(3n){
-    animation-duration:22s;
+  .content-stripe{
+    width:20px;
+    height:100%;
   }
-  @keyframes lineDrift{
-    0%,100%{ transform:translate(0,0) scale(1); }
-    50%{ transform:translate(-14px, 8px) scale(1.01); }
-  }
-  @keyframes dashFlow{
-    to{ stroke-dashoffset:-500; }
+  .content-stripe.s1{ background:var(--stripe-1); }
+  .content-stripe.s2{ background:var(--stripe-2); }
+  .content-stripe.s3{ background:var(--stripe-3); }
+
+  /* Hide vertical stripes on screens where margins are too small */
+  @media (max-width: 1460px) {
+    .content-stripes { display: none; }
   }
 
 
   ::-webkit-scrollbar{ width:10px; }
-  ::-webkit-scrollbar-track{ background:#0b0f16; }
-  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--accent-dim), var(--accent)); border-radius:20px; }
-  ::-webkit-scrollbar-thumb:hover{ background:linear-gradient(var(--royal-light), var(--gold)); }
+  ::-webkit-scrollbar-track{ background:var(--bg-primary); }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--accent-dark), var(--accent)); border-radius:20px; }
+  ::-webkit-scrollbar-thumb:hover{ background:linear-gradient(var(--text-primary), var(--accent-light)); }
 
-  ::selection{ background:var(--accent-dim); color:#fff; }
+  ::selection{ background:var(--accent-dark); color:var(--bg-primary); }
 
   a{ color:inherit; text-decoration:none; }
   a:focus-visible, button:focus-visible{
@@ -143,7 +213,7 @@
     top:0; left:0;
     width:260px; height:260px;
     transform:translate(-50%, -50%);
-    background:radial-gradient(circle, var(--royal-light-dim) 0%, transparent 70%);
+    background:radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
     pointer-events:none;
     z-index:0;
     opacity:0;
@@ -151,17 +221,19 @@
   }
   #cursorHalo.active{ opacity:1; }
 
-  /* ---------- nav ---------- */
+  #typeTagline{
+    color: var(--accent);
+  }  /* ---------- nav (Sports Car Dashboard console) ---------- */
   header.nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(13,17,23,0.72);
+    background: linear-gradient(180deg, #1C1D20 0%, #151618 100%);
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
-    border-bottom:1px solid var(--border);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 20px rgba(0,0,0,0.5);
   }
   .nav-inner{
     display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px;
+    padding:16px 28px;
     max-width:var(--max); margin:0 auto;
   }
   .brand{
@@ -169,10 +241,60 @@
     font-family:var(--font-mono); font-size:14px; font-weight:500;
     color:var(--text-primary);
   }
+
+  /* Telemetry readouts next to brand */
+  .dash-telemetry{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-left:14px;
+    padding:4px 10px;
+    background:rgba(11, 11, 12, 0.85);
+    border:1px solid var(--border-light);
+    border-radius:6px;
+    font-family:var(--font-mono);
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.9);
+  }
+  .tel-item{
+    display:flex;
+    gap:4px;
+  }
+  .tel-item .lbl{
+    color:var(--text-muted);
+  }
+  .tel-item .val{
+    color:var(--accent);
+    font-weight:600;
+    text-shadow:0 0 4px rgba(212, 175, 55, 0.4);
+  }
+  .tel-item .val.success{
+    color:var(--success);
+    text-shadow:0 0 4px rgba(111, 143, 114, 0.4);
+  }
+
+  /* Horizontal triple-stripe trim line */
+  .nav-dash-trim{
+    display:flex;
+    height:3px;
+    width:100%;
+  }
+  .trim-line{
+    flex:1;
+    height:100%;
+  }
+  .trim-line.s1{ background:var(--stripe-1); }
+  .trim-line.s2{ background:var(--stripe-2); }
+  .trim-line.s3{ background:var(--stripe-3); }
+
+  @media (max-width: 600px) {
+    .dash-telemetry { display: none; }
+  }
   .brand .dot{
     width:8px; height:8px; border-radius:50%;
-    background:var(--live);
-    box-shadow:0 0 0 3px var(--live-dim);
+    background:var(--accent);
+    box-shadow:0 0 0 3px rgba(212, 175, 55, 0.18);
   }
   .type-cursor{
     display:inline-block;
@@ -202,17 +324,17 @@
     letter-spacing:0.02em;
     transition:color .15s ease;
   }
-  nav.links a:hover{ color:var(--accent-dim); }
+  nav.links a:hover{ color:var(--accent); }
   nav.links a.cta{
     display:inline-flex; align-items:center; gap:7px;
-    color:#fff;
-    background:linear-gradient(135deg, var(--accent-dim), var(--royal-light));
+    color:var(--button-primary-text);
+    background:var(--gradient-button);
     padding:9px 16px;
     border-radius:8px;
     font-weight:600;
     transition:box-shadow .25s ease, transform .18s ease;
   }
-  nav.links a.cta:hover{ box-shadow:0 0 20px rgba(86,207,225,.4); transform:translateY(-1px); color:#fff; }
+  nav.links a.cta:hover{ box-shadow:0 0 20px var(--button-hover-glow-1); transform:translateY(-1px); color:var(--button-primary-text); }
 
   /* ---------- hero ---------- */
   .hero{
@@ -223,15 +345,16 @@
   .hero > *{ position:relative; z-index:1; }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
+    align-self:flex-start; /* Shrink-to-fit content block */
     font-family:var(--font-mono); font-size:12px;
-    color:var(--live);
-    background:rgba(16,30,24,0.55);
+    color:var(--eyebrow-color);
+    background:var(--eyebrow-bg);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(16,185,129,0.25);
+    border:1px solid var(--eyebrow-border);
     padding:6px 12px; border-radius:20px;
     margin-bottom:32px;
-    box-shadow:0 4px 18px rgba(0,0,0,.35);
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
   }
   .eyebrow .pulse{
     width:6px; height:6px; border-radius:50%; background:var(--live);
@@ -268,10 +391,10 @@
     display:inline-flex; align-items:center; gap:9px;
     transition:all .18s ease;
   }
-  .btn.primary{ background:linear-gradient(135deg, var(--accent-dim), var(--royal-light)); color:#fff; border-color:transparent; }
-  .btn.primary:hover{ box-shadow:0 0 20px rgba(86,207,225,.4), 0 0 45px rgba(86,207,225,.22); transform:translateY(-2px); }
-  .btn.ghost{ color:var(--text-primary); background:var(--bg-panel); backdrop-filter:blur(12px); }
-  .btn.ghost:hover{ border-color:var(--royal-light); background:var(--bg-panel-hover); }
+  .btn.primary{ background:var(--gradient-button); color:var(--button-primary-text); border-color:transparent; font-weight:600; }
+  .btn.primary:hover{ box-shadow:0 0 20px var(--button-hover-glow-1), 0 0 45px var(--button-hover-glow-2); transform:translateY(-2px); }
+  .btn.ghost{ color:var(--text-primary); background:var(--surface-primary); backdrop-filter:blur(12px); border-color:var(--border-light); }
+  .btn.ghost:hover{ border-color:var(--accent); background:var(--surface-hover); }
 
   /* KPI tiles */
   .kpi-row{
@@ -343,7 +466,7 @@
   section{ padding:0 0 88px; margin-top:96px; border-top:1px solid var(--silver); }
   .section-head{ margin-top:56px; margin-bottom:48px; }
   .section-tag{
-    font-family:var(--font-mono); font-size:12px; color:var(--gold);
+    font-family:var(--font-mono); font-size:12px; color:var(--accent);
     text-transform:uppercase; letter-spacing:0.1em;
     display:block; margin-bottom:12px;
   }
@@ -361,32 +484,95 @@
   .about-body p{ color:var(--text-secondary); font-size:16px; margin:0 0 20px; }
   .about-body p strong{ color:var(--accent-dim); font-weight:600; }
 
-  .facts{
-    background:var(--glass);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    box-shadow:var(--glass-shadow);
+  /* ---------- Infotainment Info Panel (Porsche/BMW M inspired) ---------- */
+  .info-panel {
+    --panel-accent: #009ADA;
+    --panel-label: #A1A1AA;
+    --panel-value: #F5F5F5;
+    
+    background: rgba(18, 18, 18, 0.70);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 36px 40px;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
   }
-  .facts-head{
-    font-family:var(--font-mono); font-size:11px; color:var(--text-tertiary);
-    padding:18px 24px; border-bottom:1px solid var(--border);
-    text-transform:uppercase; letter-spacing:0.06em;
+  .info-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
   }
-  .fact-row{
-    display:flex; justify-content:space-between; gap:16px;
-    padding:16px 24px;
-    border-bottom:1px solid var(--border);
-    font-size:14px;
-    transition:background .15s ease;
+  .info-panel:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
   }
-  .fact-row:hover{ background:rgba(44,166,164,.08); }
-  .fact-row:hover .fact-val{ color:var(--accent-dim); }
-  .fact-row:last-child{ border-bottom:none; }
-  .fact-key{ color:var(--text-tertiary); font-family:var(--font-mono); font-size:12.5px; }
-  .fact-val{ color:var(--text-primary); text-align:right; font-weight:500; transition:color .15s ease; }
+  .info-panel:hover::before {
+    opacity: 1;
+  }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--panel-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--panel-accent);
+    animation: indPulse 1.5s infinite alternate;
+  }
+  .panel-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--panel-accent);
+    text-transform: uppercase;
+  }
+  .panel-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .panel-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--panel-label);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .panel-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--panel-value);
+    letter-spacing: -0.01em;
+  }
+  .panel-value-sub {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    color: var(--panel-label);
+    margin-left: 8px;
+    opacity: 0.8;
+  }
 
   /* ---------- projects — cell grid, 2 per row ---------- */
   .project-list{
@@ -395,20 +581,19 @@
     gap:18px;
   }
   .project-item{
-    background:var(--glass);
-    border:1px solid var(--border);
+    background: linear-gradient(var(--surface-primary), var(--surface-secondary)) padding-box,
+                linear-gradient(135deg, var(--metal-light), var(--metal-dark)) border-box;
+    border: 1px solid transparent;
     border-radius:var(--radius);
     padding:36px 32px;
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    box-shadow:var(--glass-shadow);
-    transition:background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    box-shadow:var(--shadow);
+    transition:all .35s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .project-item:hover{
-    background:var(--glass-hover);
-    border-color:var(--royal-light);
-    transform:translateY(-4px);
-    box-shadow:var(--glass-shadow-hover);
+    background: linear-gradient(var(--surface-hover), var(--surface-primary)) padding-box,
+                linear-gradient(135deg, var(--accent-light), var(--accent-dark)) border-box;
+    transform:translateY(-8px) scale(1.005);
+    box-shadow:0 30px 60px -15px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.18);
   }
   /* lone odd item out spans the full width so the grid never leaves a gap */
   .project-item:last-child:nth-child(odd){ grid-column:1 / -1; }
@@ -472,65 +657,168 @@
   /* other builds — minimal list */
   .other-list{ margin-top:8px; }
   .other-item{
-    display:flex; align-items:baseline; justify-content:space-between;
-    gap:20px; padding:20px 0;
-    border-bottom:1px solid var(--border);
-    flex-wrap:wrap;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+  }
+  .other-item:hover {
+    background: var(--row-hover-bg);
   }
   .other-item:first-child{ border-top:1px solid var(--border); }
-  .other-item-main{ display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
-  .other-item h3{ font-family:var(--font-display); font-size:16px; margin:0; font-weight:700; }
-  .other-item p{ color:var(--text-secondary); font-size:14px; margin:0; max-width:480px; }
-  .other-item .project-link{ flex-shrink:0; }
+  .other-item-main{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .other-item h3{ font-family:var(--font-display); font-size:15px; margin:0; font-weight:700; }
+  .other-item p{ color:var(--text-secondary); font-size:13.5px; margin:0; line-height:1.5; }
+  .other-item .project-link{ flex-shrink:0; justify-self: end; }
 
-  /* ---------- stack ---------- */
+  /* ---------- Tech Stack Cockpit Dashboard Style (Modern EV Infotainment) ---------- */
   .stack-group{
-    margin-bottom:20px;
-    background:var(--glass);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:26px 28px;
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-    transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    position:relative;
+    margin-bottom:24px;
+    background: rgba(22, 23, 26, 0.65) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 24px 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all .35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
   }
   .stack-group:hover{
-    border-color:var(--royal-light);
-    background:var(--glass-hover);
-    box-shadow:0 0 28px rgba(86,207,225,.14);
+    background: rgba(30, 31, 36, 0.8) !important;
+    border-color: rgba(212, 175, 55, 0.25) !important;
+    transform: translateY(-8px) scale(1.005);
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.12);
   }
   .stack-group:last-child{ margin-bottom:0; }
-  .stack-group-label{
-    display:flex; align-items:center; gap:9px;
-    font-family:var(--font-mono); font-size:12px; color:var(--text-tertiary);
-    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;
+
+  .stack-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 12px;
   }
-  .stack-group-label svg{ color:var(--royal-light); }
-  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .stack-group-label{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--font-mono); font-size:13px; font-weight:600;
+    color:var(--text-primary) !important;
+    text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .stack-group-label svg{ color:var(--accent); }
+
+  /* Modern Infotainment Speedometer / Dial Gauge */
+  .dash-gauge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+  }
+  .gauge-ring-container {
+    position: relative;
+    width: 28px;
+    height: 28px;
+  }
+  .gauge-ring-container svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .gauge-ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 3.5;
+  }
+  .gauge-ring-fill {
+    fill: none;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+  }
+  /* Color themes for the gauges matching the M-stripes */
+  .gauge-ring-fill.s1 { stroke: var(--stripe-1); }
+  .gauge-ring-fill.s2 { stroke: var(--stripe-2); }
+  .gauge-ring-fill.s3 { stroke: var(--stripe-3); }
+
+  .gauge-text {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; position:relative; z-index:2; }
   .chip{
-    font-family:var(--font-mono); font-size:13px; color:var(--gold-soft);
-    background:var(--glass); border:1px solid var(--border);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    padding:8px 15px; border-radius:20px;
-    transition:border-color .15s ease, color .15s ease, background .15s ease,
-               opacity .5s cubic-bezier(.34,1.56,.64,1), transform .5s cubic-bezier(.34,1.56,.64,1);
+    position:relative;
+    padding:10px 18px !important;
+    border-radius:8px !important;
+    font-family:var(--font-mono); font-size:12px; color:var(--text-secondary);
+    background: rgba(255, 255, 255, 0.025) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+    transition: all .25s cubic-bezier(.25, .8, .25, 1);
     opacity:0;
     transform:scale(0.4) translateY(10px);
   }
   .chip.pop-in{ opacity:1; transform:scale(1) translateY(0); }
-  .chip:hover{ border-color:var(--gold); color:var(--gold-soft); background:var(--glass-hover); box-shadow:0 0 14px rgba(229,190,75,.28); }
+
+  /* Touch-capacitive active state glow bar */
+  .chip::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    border-radius: 2px;
+    opacity: 0.75;
+    transition: all .25s ease;
+  }
+  .chip.s1::after {
+    background: var(--stripe-1);
+    box-shadow: 0 0 6px var(--stripe-1), 0 0 12px var(--stripe-1);
+  }
+  .chip.s2::after {
+    background: var(--stripe-2);
+    box-shadow: 0 0 6px var(--stripe-2), 0 0 12px var(--stripe-2);
+  }
+  .chip.s3::after {
+    background: var(--stripe-3);
+    box-shadow: 0 0 6px var(--stripe-3), 0 0 12px var(--stripe-3);
+  }
+
+  .chip:hover{
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+  }
+  .chip:hover::after {
+    left: 10%;
+    right: 10%;
+    opacity: 1;
+    height: 3px;
+  }
 
   /* ---------- log ---------- */
   .log{
-    background:var(--glass);
-    border:1px solid var(--border);
+    background: linear-gradient(var(--surface-primary), var(--surface-secondary)) padding-box,
+                linear-gradient(135deg, var(--metal-light), var(--metal-dark)) border-box;
+    border: 1px solid transparent;
     border-radius:var(--radius);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
     padding:28px 32px;
     font-family:var(--font-mono); font-size:13.5px;
     color:var(--text-secondary);
+    box-shadow:var(--shadow);
   }
   .log-line{ display:flex; gap:14px; padding:8px 0; align-items:baseline; }
   .log-line .ts{ color:var(--text-tertiary); flex-shrink:0; }
@@ -556,23 +844,22 @@
   .contact-link{
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 26px;
-    background:var(--glass);
-    border:1px solid var(--border);
+    background: linear-gradient(var(--surface-primary), var(--surface-secondary)) padding-box,
+                linear-gradient(135deg, var(--metal-light), var(--metal-dark)) border-box;
+    border: 1px solid transparent;
     border-radius:10px;
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    box-shadow:var(--glass-shadow);
+    box-shadow:var(--shadow);
     font-family:var(--font-mono); font-size:14px;
     color:var(--text-primary);
-    transition:background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    transition:all .35s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .contact-link .left{ display:flex; align-items:center; gap:12px; }
-  .contact-link svg{ color:var(--gold); }
+  .contact-link svg{ color:var(--accent); }
   .contact-link:hover{
-    background:var(--glass-hover);
-    border-color:var(--royal-light);
-    transform:translateY(-2px);
-    box-shadow:var(--glass-shadow-hover);
+    background: linear-gradient(var(--surface-hover), var(--surface-primary)) padding-box,
+                linear-gradient(135deg, var(--accent-light), var(--accent-dark)) border-box;
+    transform:translateY(-6px) scale(1.005);
+    box-shadow:0 25px 50px -12px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.18);
   }
   .contact-link .arrow{ color:var(--text-tertiary); transition:transform .15s ease, color .15s ease; }
   .contact-link:hover .arrow{ transform:translateX(3px); color:var(--royal-light); }
@@ -592,6 +879,23 @@
     .kpi-row{ max-width:100%; }
     .project-list{ grid-template-columns:1fr; }
     .project-item:last-child:nth-child(odd){ grid-column:auto; }
+    .other-item {
+      display: flex !important;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px 16px;
+    }
+    .other-item-main {
+      display: flex !important;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      width: 100%;
+    }
+    .other-item .project-link {
+      align-self: flex-start;
+    }
   }
   @media (max-width: 520px){
     .wrap{ padding:0 18px; }
@@ -600,63 +904,426 @@
     .cgpa-mini{ align-self:flex-start; }
     .project-item-head{ flex-direction:column; }
     .project-item{ padding:32px 24px; }
-    .other-item{ flex-direction:column; align-items:flex-start; gap:8px; }
+  }
+
+  /* ---------- Hero Grid & Telemetry Simulator Widget ---------- */
+  .hero-grid-container {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+  }
+  .hero-main-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-side-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    perspective: 1000px;
+  }
+  .telemetry-widget {
+    --widget-bg: rgba(22, 23, 26, 0.65);
+    --widget-border: rgba(255, 255, 255, 0.06);
+    --widget-text: var(--text-primary);
+    --widget-text-muted: var(--text-muted);
+    --widget-accent: var(--accent);
+    --widget-status-green: #00C853;
+    
+    position: relative;
+    background: var(--widget-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--widget-border);
+    border-radius: 50%;
+    width: 330px;
+    height: 330px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.03);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: visible;
+  }
+  .telemetry-widget:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.6);
+  }
+  .gauge-svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .gauge-track-outer {
+    fill: none;
+    stroke: var(--widget-border);
+    stroke-width: 1;
+  }
+  .gauge-fill-outer {
+    fill: none;
+    stroke: var(--widget-accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s ease;
+  }
+  .gauge-tick-mark {
+    stroke: var(--widget-border);
+    stroke-width: 0.75;
+  }
+  .gauge-tick-mark.active {
+    stroke: var(--widget-accent);
+  }
+  .gauge-chart-line {
+    fill: none;
+    stroke: var(--chart-accent);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+  }
+  .gauge-chart-area {
+    fill: url(#gaugeChartGlowGrad);
+  }
+  .radial-overlay {
+    position: absolute;
+    z-index: 2;
+    font-family: var(--font-mono);
+  }
+  .overlay-top {
+    top: 9%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  .overlay-top .pulse-green {
+    width: 6px;
+    height: 6px;
+    background: var(--widget-status-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--widget-status-green);
+    animation: indPulse 1.5s infinite alternate;
+  }
+  @keyframes indPulse {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+  .overlay-top .status-text {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--widget-status-green);
+    letter-spacing: 0.12em;
+  }
+  .overlay-metric-lbl {
+    font-size: 7px;
+    font-weight: 600;
+    color: var(--widget-text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    display: block;
+  }
+  .overlay-metric-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--widget-text);
+  }
+  .overlay-upper-left {
+    top: 22%;
+    left: 14%;
+  }
+  .overlay-upper-right {
+    top: 22%;
+    right: 14%;
+    text-align: right;
+  }
+  .overlay-lower-left {
+    bottom: 28%;
+    left: 15%;
+  }
+  .overlay-lower-right {
+    bottom: 28%;
+    right: 15%;
+    text-align: right;
+  }
+  .overlay-center {
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .center-pct {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--widget-text);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .center-label {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--widget-accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .center-meta {
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--widget-text-muted);
+    letter-spacing: 0.02em;
+  }
+  .overlay-bottom {
+    bottom: 14%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .bottom-eta {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--widget-text-muted);
+    letter-spacing: 0.08em;
+  }
+  .bottom-eta span {
+    color: var(--widget-text);
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .hero-side-col {
+      display: none;
+    }
+  }
+
+  /* ---------- Theme Toggle Switch ---------- */
+  .btn-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .btn-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  body.light-mode .sun-icon { display: none; }
+  body:not(.light-mode) .moon-icon { display: none; }
+
+  /* ---------- Light Mode Theme (EV Matte White & Racing Red/Blue) ---------- */
+  body.light-mode {
+    --bg-primary: #ECEFF1; /* Clean grey-white background */
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #DFE1E5;
+
+    --surface-primary: #FFFFFF;
+    --surface-secondary: #ECEFF1;
+    --surface-hover: #DFE1E5;
+
+    --glass: rgba(0, 0, 0, 0.02);
+    --glass-hover: rgba(0, 0, 0, 0.04);
+
+    --border-light: #E2E8F0;
+    --border: #CBD5E1;
+    --border-dark: #94A3B8;
+
+    --text-primary: #111111; /* Obsidian */
+    --text-heading: #111111;
+    --text-secondary: #6B7280; /* Slate Gray */
+    --text-muted: #8E96A3;
+    --text-disabled: #BCBFC4;
+
+    --accent: #D72638; /* Muted Crimson / Red */
+    --accent-light: #FF5A60;
+    --accent-dark: #A50E14;
+    --accent-dim: #D72638; /* Muted Crimson / Red */
+
+    --stripe-1: #009ADA; /* BMW M Blue */
+    --stripe-2: #003DA5; /* BMW M Dark Blue */
+    --stripe-3: #D72638; /* Muted Crimson / Red */
+
+    --metal-light: #CFCECA;
+    --metal: #A5A4A0;
+    --metal-dark: #6B7280;
+
+    /* Light Mode Overrides for compatibility mappings */
+    --bg-inset: #EBEAE6;
+    --text-tertiary: #6B7280;
+
+    --eyebrow-bg: rgba(46, 125, 50, 0.06);
+    --eyebrow-border: rgba(46, 125, 50, 0.15);
+    --eyebrow-color: #2E7D32; /* Forest green status */
+    --success: #2E7D32;
+
+    --gold: var(--accent);
+    --gold-soft: var(--accent-light);
+    --gold-dim: var(--accent-dim);
+
+    /* Theme-specific buttons contrast */
+    --button-primary-bg: #111111; /* Obsidian primary button */
+    --button-primary-text: #FFFFFF;
+    --button-secondary-bg: transparent;
+    --button-secondary-text: #111111;
+    --button-secondary-border: #CFCECA;
+
+    --gradient-button: linear-gradient(180deg, #24252A 0%, #111111 100%);
+    --button-hover-glow-1: rgba(215, 38, 56, 0.3);
+    --button-hover-glow-2: rgba(215, 38, 56, 0.15);
+
+    --chart-accent: #D72638; /* Graph Accent: Muted Crimson */
+    --row-hover-bg: rgba(215, 38, 56, 0.05); /* Crimson Red hover highlight */
+  }
+
+  body.light-mode .telemetry-widget {
+    --widget-bg: rgba(255, 255, 255, 0.55);
+    --widget-border: rgba(0, 0, 0, 0.04);
+    --widget-text: #111111;
+    --widget-text-muted: #6B7280;
+    --widget-accent: #D72638;
+    --widget-status-green: #2E7D32;
+  }
+
+  body.light-mode header.nav {
+    background: linear-gradient(180deg, #DCE1E7 0%, #D1D6DC 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 20px rgba(0,0,0,0.06);
+  }
+  body.light-mode .dash-telemetry {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  }
+  body.light-mode .stack-group {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,1);
+  }
+  body.light-mode .stack-group:hover {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border-color: rgba(227, 27, 35, 0.2) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.06), 0 0 25px rgba(227, 27, 35, 0.04);
+  }
+  body.light-mode .stack-group-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  body.light-mode .stack-group-label {
+    background: none !important;
+  }
+  body.light-mode .gauge-ring-bg {
+    stroke: rgba(0, 0, 0, 0.03);
+  }
+  body.light-mode .chip {
+    background: rgba(0, 0, 0, 0.015) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+    color: var(--text-secondary);
+  }
+  body.light-mode .chip:hover {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: var(--text-primary);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05) !important;
+  }
+  body.light-mode #cursorHalo {
+    background: radial-gradient(circle, rgba(227, 27, 35, 0.08) 0%, transparent 70%);
+  }
+  body.light-mode .btn-toggle {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  body.light-mode .btn-toggle:hover {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  body.light-mode .project-link.demo {
+    color: var(--accent);
+  }
+  body.light-mode .project-link.demo:hover {
+    color: var(--accent-light);
+  }
+  body.light-mode .telemetry-widget {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border-color: rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  body.light-mode .widget-header {
+    border-bottom-color: rgba(0,0,0,0.05);
+  }
+  body.light-mode .gauge-track {
+    stroke: rgba(0, 0, 0, 0.03);
+  }
+  body.light-mode .ind-row {
+    border-bottom-color: rgba(0,0,0,0.04);
+  }
+  body.light-mode .widget-terminal {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.04);
+  }
+  body.light-mode .info-panel {
+    background: rgba(247, 245, 242, 0.80);
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    --panel-label: #6B7280;
+    --panel-value: #111111;
+  }
+  body.light-mode .info-panel:hover {
+    border-color: rgba(17, 17, 17, 0.15);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.10);
+  }
+  body.light-mode .info-panel::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
   }
 </style>
 </head>
 <body>
 
-<div id="cursorHalo"></div>
+<script>
+  if (localStorage.getItem('portfolio-theme') === 'light') {
+    document.body.classList.add('light-mode');
+  }
+</script>
 
-<svg id="lineArt" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <defs>
-    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#56CFE1" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#56CFE1" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#E5BE4B" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="lineGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#8FE0EE" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#2CA6A4" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="lineGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2CA6A4" stop-opacity="0"/>
-      <stop offset="55%" stop-color="#56CFE1" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#56CFE1" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="lineGradGold1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#F0D585" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#E5BE4B" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="lineGradGold2" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#E5BE4B" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#56CFE1" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="lineGlow" x="-200%" y="-200%" width="500%" height="500%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  <path d="M -100 180 C 300 60, 700 260, 1100 90 S 1600 200, 1900 40" stroke="url(#lineGrad1)" stroke-width="1.4"/>
-  <path d="M -100 260 C 320 140, 680 340, 1080 170 S 1580 280, 1900 120" stroke="url(#lineGrad1)" stroke-width="0.8"/>
-  <path d="M -100 620 C 260 780, 640 560, 1040 760 S 1560 640, 1900 820" stroke="url(#lineGrad2)" stroke-width="1.2"/>
-  <path d="M -100 700 C 280 840, 660 640, 1060 830 S 1580 720, 1900 880" stroke="url(#lineGrad2)" stroke-width="0.7"/>
-  <path d="M -100 460 C 340 380, 620 520, 980 420 S 1500 480, 1900 400" stroke="url(#lineGrad3)" stroke-width="1"/>
-  <path d="M 200 -50 C 260 260, 140 480, 320 900" stroke="url(#lineGrad3)" stroke-width="0.6"/>
-  <path d="M 1240 -50 C 1180 280, 1320 500, 1160 900" stroke="url(#lineGrad1)" stroke-width="0.6"/>
-  <path d="M -100 340 C 280 220, 760 420, 1180 260 S 1650 360, 1900 260" stroke="url(#lineGradGold1)" stroke-width="1.1"/>
-  <path d="M -100 540 C 300 660, 700 480, 1120 620 S 1600 520, 1900 620" stroke="url(#lineGradGold2)" stroke-width="0.9"/>
-</svg>
+<!-- Vertical luxury stripes framing the content wrapper -->
+<div class="content-stripes left">
+  <span class="content-stripe s1"></span>
+  <span class="content-stripe s2"></span>
+  <span class="content-stripe s3"></span>
+</div>
+<div class="content-stripes right">
+  <span class="content-stripe s3"></span>
+  <span class="content-stripe s1"></span>
+</div>
+
+<div id="cursorHalo"></div>
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="dot"></span> <span id="typeNav1"></span><span id="typeNav2" style="color:var(--text-tertiary)"></span><span id="typeNav3"></span><span id="typeNav4" style="color:var(--text-tertiary)"></span><span class="type-cursor" id="navCursor" style="color:var(--text-primary)"></span></div>
+    <div class="brand">
+      <span class="dot"></span>
+      <span id="typeNav1"></span><span id="typeNav2" style="color:var(--text-tertiary)"></span><span id="typeNav3"></span><span id="typeNav4" style="color:var(--text-tertiary)"></span><span class="type-cursor" id="navCursor" style="color:var(--text-primary)"></span>
+      <div class="dash-telemetry">
+        <span class="tel-item"><span class="lbl">SYS:</span><span class="val success">ONLINE</span></span>
+      </div>
+    </div>
     <nav class="links">
       <a href="#about">about</a>
       <a href="#projects">projects</a>
@@ -666,43 +1333,126 @@
         GitHub
       </a>
     </nav>
+    <button id="themeToggle" class="btn-toggle" aria-label="Toggle theme">
+      <svg class="icon sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="icon moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+  <!-- Dashboard bottom colored accent trim -->
+  <div class="nav-dash-trim">
+    <span class="trim-line s1"></span>
+    <span class="trim-line s2"></span>
+    <span class="trim-line s3"></span>
   </div>
 </header>
 
 <main>
 
   <section class="hero wrap" style="border-top:none;">
-    <div class="eyebrow"><span class="pulse"></span> OPEN TO ML / AI ENGINEERING ROLES</div>
-    <h1 class="name">Anshuman Pandey<br><span id="typeTagline"></span><span class="type-cursor" id="taglineCursor" style="color:var(--gold)"></span></h1>
-    <p class="hero-sub">B.Tech CSE (AI/ML), VIT Bhopal — Class of 2027. I care about the unglamorous middle part of machine learning: getting a model out of a notebook and into something that holds up under <strong>real data, real drift, and real users</strong>. Outside of that, chess is enough of an obsession that I built an engine for it instead of just playing.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn primary">
-        View projects
-        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="https://github.com/AnshumanJ28" target="_blank" rel="noopener" class="btn ghost">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-        GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/anshuman-pandey-a77940279/" target="_blank" rel="noopener" class="btn ghost">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
-        LinkedIn
-      </a>
-    </div>
-
-    <div class="kpi-row">
-      <div class="kpi-main">
-        <div class="kpi-label">Shipped projects</div>
-        <div class="kpi-value" data-count="10">0</div>
-      </div>
-      <div class="cgpa-mini">
-        <div class="cgpa-chip">
-          <div class="cgpa-num">8.52</div>
-          <div class="cgpa-lbl">CGPA</div>
+    <div class="hero-grid-container">
+      <div class="hero-main-col">
+        <div class="eyebrow"><span class="pulse"></span> OPEN TO ML / AI ENGINEERING ROLES</div>
+        <h1 class="name">Anshuman Pandey<br><span id="typeTagline"></span><span class="type-cursor" id="taglineCursor" style="color:var(--accent)"></span></h1>
+        <div class="hero-sub">
+          <p>B.Tech Computer Science (AI &amp; ML) student from VIT Bhopal. I am fascinated about the other side of machine learning where we move our models out of notebooks to create systems which are <strong>resilient to changes in data and model drifts</strong>.</p>
+          <p style="margin-top:14px; font-size:0.92em; opacity:0.85;">In addition to AI, one of my other hobbies is playing chess. In fact, my interest in chess was so intense that I developed a <strong>chess engine which plays against itself</strong>.</p>
         </div>
-        <div class="cgpa-chip">
-          <div class="cgpa-num">/ 10</div>
-          <div class="cgpa-lbl">Scale</div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">
+            View projects
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://github.com/AnshumanJ28" target="_blank" rel="noopener" class="btn ghost">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/anshuman-pandey-a77940279/" target="_blank" rel="noopener" class="btn ghost">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi-main">
+            <div class="kpi-label">Shipped projects</div>
+            <div class="kpi-value" data-count="10">0</div>
+          </div>
+          <div class="cgpa-mini">
+            <div class="cgpa-chip">
+              <div class="cgpa-num">8.52</div>
+              <div class="cgpa-lbl">CGPA</div>
+            </div>
+            <div class="cgpa-chip">
+              <div class="cgpa-num">/ 10</div>
+              <div class="cgpa-lbl">Scale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side-col">
+        <div class="telemetry-widget">
+          <!-- Background SVG Gauge Graphics -->
+          <svg viewBox="0 0 300 300" class="gauge-svg-overlay">
+            <defs>
+              <linearGradient id="gaugeChartGlowGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--chart-accent)" stop-opacity="0.12" />
+                <stop offset="100%" stop-color="var(--chart-accent)" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <!-- Outer bezel track -->
+            <circle cx="150" cy="150" r="138" class="gauge-track-outer" />
+            <!-- Active epoch progress fill -->
+            <circle cx="150" cy="150" r="138" class="gauge-fill-outer" id="telemetryGaugeFill" stroke-dasharray="364, 867" />
+            
+            <!-- Instrument tachometer radial indicator ticks -->
+            <line x1="150" y1="12" x2="150" y2="17" class="gauge-tick-mark active" />
+            <line x1="247.5" y1="52.5" x2="244" y2="56" class="gauge-tick-mark active" />
+            <line x1="52.5" y1="52.5" x2="56" y2="56" class="gauge-tick-mark active" />
+            <line x1="288" y1="150" x2="283" y2="150" class="gauge-tick-mark" />
+            <line x1="12" y1="150" x2="17" y2="150" class="gauge-tick-mark" />
+            
+            <!-- Training curve path mapped across the center of the circle -->
+            <path d="M 12 160 Q 150 150 282 110 A 138 138 0 0 1 12 160 Z" class="gauge-chart-area" />
+            <path d="M 12 160 Q 150 150 282 110" class="gauge-chart-line" />
+          </svg>
+
+          <!-- Symmetrical radial text overlays -->
+          <div class="radial-overlay overlay-top">
+            <span class="pulse-green"></span>
+            <span class="status-text">LIVE</span>
+          </div>
+
+          <div class="radial-overlay overlay-upper-left">
+            <span class="overlay-metric-lbl">Val Loss</span>
+            <span class="overlay-metric-val" id="telemetryLoss">0.0342</span>
+          </div>
+
+          <div class="radial-overlay overlay-upper-right">
+            <span class="overlay-metric-lbl">Accuracy</span>
+            <span class="overlay-metric-val" id="telemetryAcc">99.05%</span>
+          </div>
+
+          <!-- Central visual focus tachometer gauge face -->
+          <div class="radial-overlay overlay-center">
+            <span class="center-pct" id="telemetryGaugeText">42%</span>
+            <span class="center-label">TRAINING</span>
+            <span class="center-meta">Epoch <span id="telemetryEpoch">42</span> / 100</span>
+          </div>
+
+          <div class="radial-overlay overlay-lower-left">
+            <span class="overlay-metric-lbl">Data Drift</span>
+            <span class="overlay-metric-val" id="telemetryDrift">Stable</span>
+          </div>
+
+          <div class="radial-overlay overlay-lower-right">
+            <span class="overlay-metric-lbl">Current Step</span>
+            <span class="overlay-metric-val" id="telemetryStep">1408</span>
+          </div>
+
+          <div class="radial-overlay overlay-bottom">
+            <span class="bottom-eta">ETA <span id="telemetryETA">02:14</span></span>
+          </div>
         </div>
       </div>
     </div>
@@ -715,18 +1465,36 @@
     </div>
     <div class="about-grid">
       <div class="about-body">
-        <p>Most of my portfolio is one long argument: a model isn't finished when the notebook runs cleanly. It's finished when it's <strong>versioned, monitored, tested, and still working after the data shifts underneath it</strong>. That's the thread running through my MLOps pipeline, my drift-monitored forecasting work, and my digital twin project — production concerns first, novelty second.</p>
-        <p>The one exception is <strong>AlphaZ0</strong>, my self-play chess engine — built purely because chess is the thing I'd think about anyway, so I built the AI to think about it with me. Everything else on this page exists because I wanted to know how ML systems actually break in production, and the only way to find out was to build enough of them.</p>
-        <p>When I'm not training something, I'm probably deep in a LeetCode session in C++, or losing track of time on a chessboard.</p>
+        <p>I am an AI &amp; Machine Learning engineer who likes to build systems which survive beyond the boundaries of notebooks. My definition of a good model does not include only achieving high performance but also making it <strong>reproducible, versioned, monitorable, testable, and working under different data</strong>.</p>
+        <p>Almost all of my projects are related to production ML where I <strong>design ML pipelines, deploy full machine learning solutions, observe model drifts, and build systems which are maintainable over time</strong>. I love doing engineering as much as I train models.</p>
+        <p>In addition to production-related projects, I build some projects for fun and challenge myself. <strong>AlphaZ0</strong> is such an example; it is a <strong>self-play chess engine project</strong> and a deep study of reinforcement learning motivated by a game I love to play.</p>
+        <p>When I am not busy with AI projects, I solve problems and try to design systems or play chess.</p>
       </div>
-      <div class="facts">
-        <div class="facts-head">Quick Facts</div>
-        <div class="fact-row"><span class="fact-key">education</span><span class="fact-val">VIT Bhopal, B.Tech CSE (AI/ML)</span></div>
-        <div class="fact-row"><span class="fact-key">class_of</span><span class="fact-val">2027</span></div>
-        <div class="fact-row"><span class="fact-key">focus</span><span class="fact-val">MLOps · RAG · Applied DL</span></div>
-        <div class="fact-row"><span class="fact-key">languages</span><span class="fact-val">Python, C++, Java</span></div>
-        <div class="fact-row"><span class="fact-key">seeking</span><span class="fact-val">ML / AI Eng. internship or new grad</span></div>
-        <div class="fact-row"><span class="fact-key">off_hours</span><span class="fact-val">Chess, LeetCode (C++)</span></div>
+      <div class="info-panel">
+        <div class="panel-header">
+          <span class="pulse-dot"></span>
+          <span class="panel-title">SYSTEM</span>
+        </div>
+        
+        <div class="panel-item">
+          <span class="panel-label">Platform</span>
+          <span class="panel-value">VIT Bhopal · B.Tech CSE (AI/ML) <span class="panel-value-sub">2027</span></span>
+        </div>
+
+        <div class="panel-item">
+          <span class="panel-label">Focus</span>
+          <span class="panel-value">MLOps · RAG · Applied DL</span>
+        </div>
+
+        <div class="panel-item">
+          <span class="panel-label">Languages</span>
+          <span class="panel-value">Python · C++ · Java</span>
+        </div>
+
+        <div class="panel-item">
+          <span class="panel-label">Hobbies</span>
+          <span class="panel-value">Chess · LeetCode · Formula 1</span>
+        </div>
       </div>
     </div>
   </section>
@@ -984,33 +1752,103 @@
     </div>
 
     <div class="stack-group">
-      <div class="stack-group-label"><svg class="icon" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Languages</div>
+      <div class="stack-group-header">
+        <div class="stack-group-label">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+          Languages
+        </div>
+        <div class="dash-gauge">
+          <div class="gauge-ring-container">
+            <svg viewBox="0 0 36 36">
+              <path class="gauge-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="gauge-ring-fill s3" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+          <span class="gauge-text">90% CAP</span>
+        </div>
+      </div>
       <div class="chip-row">
-        <span class="chip">Python</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">HTML / CSS</span>
+        <span class="chip s3">Python</span><span class="chip s3">C++</span><span class="chip s3">C</span><span class="chip s3">Java</span><span class="chip s3">HTML / CSS</span>
       </div>
     </div>
     <div class="stack-group">
-      <div class="stack-group-label"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>ML / Data Science</div>
+      <div class="stack-group-header">
+        <div class="stack-group-label">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          ML / Data Science
+        </div>
+        <div class="dash-gauge">
+          <div class="gauge-ring-container">
+            <svg viewBox="0 0 36 36">
+              <path class="gauge-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="gauge-ring-fill s1" stroke-dasharray="95, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+          <span class="gauge-text">95% CAP</span>
+        </div>
+      </div>
       <div class="chip-row">
-        <span class="chip">PyTorch</span><span class="chip">TensorFlow / Keras</span><span class="chip">scikit-learn</span><span class="chip">LightGBM</span><span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">OpenCV</span><span class="chip">Ultralytics YOLO</span><span class="chip">SciPy</span>
+        <span class="chip s1">PyTorch</span><span class="chip s1">TensorFlow / Keras</span><span class="chip s1">scikit-learn</span><span class="chip s1">LightGBM</span><span class="chip s1">NumPy</span><span class="chip s1">Pandas</span><span class="chip s1">OpenCV</span><span class="chip s1">Ultralytics YOLO</span><span class="chip s1">SciPy</span>
       </div>
     </div>
     <div class="stack-group">
-      <div class="stack-group-label"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>LLM &amp; RAG</div>
+      <div class="stack-group-header">
+        <div class="stack-group-label">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          LLM &amp; RAG
+        </div>
+        <div class="dash-gauge">
+          <div class="gauge-ring-container">
+            <svg viewBox="0 0 36 36">
+              <path class="gauge-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="gauge-ring-fill s2" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+          <span class="gauge-text">85% CAP</span>
+        </div>
+      </div>
       <div class="chip-row">
-        <span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">Gemini</span><span class="chip">Groq</span><span class="chip">Hugging Face</span>
+        <span class="chip s2">LangChain</span><span class="chip s2">FAISS</span><span class="chip s2">Gemini</span><span class="chip s2">Groq</span><span class="chip s2">Hugging Face</span>
       </div>
     </div>
     <div class="stack-group">
-      <div class="stack-group-label"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>MLOps &amp; Deployment</div>
+      <div class="stack-group-header">
+        <div class="stack-group-label">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          MLOps &amp; Deployment
+        </div>
+        <div class="dash-gauge">
+          <div class="gauge-ring-container">
+            <svg viewBox="0 0 36 36">
+              <path class="gauge-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="gauge-ring-fill s1" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+          <span class="gauge-text">80% CAP</span>
+        </div>
+      </div>
       <div class="chip-row">
-        <span class="chip">Docker</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Streamlit</span><span class="chip">Gradio</span><span class="chip">MLflow</span><span class="chip">DVC</span><span class="chip">Evidently AI</span><span class="chip">GitHub Actions</span><span class="chip">Render</span><span class="chip">Cloudflare Tunnel</span><span class="chip">pytest</span>
+        <span class="chip s1">Docker</span><span class="chip s1">FastAPI</span><span class="chip s1">Flask</span><span class="chip s1">Streamlit</span><span class="chip s1">Gradio</span><span class="chip s1">MLflow</span><span class="chip s1">DVC</span><span class="chip s1">Evidently AI</span><span class="chip s1">GitHub Actions</span><span class="chip s1">Render</span><span class="chip s1">Cloudflare Tunnel</span><span class="chip s1">pytest</span>
       </div>
     </div>
     <div class="stack-group">
-      <div class="stack-group-label"><svg class="icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="m16 8-8.5 8.5"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>Tools &amp; Platforms</div>
+      <div class="stack-group-header">
+        <div class="stack-group-label">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="m16 8-8.5 8.5"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          Tools &amp; Platforms
+        </div>
+        <div class="dash-gauge">
+          <div class="gauge-ring-container">
+            <svg viewBox="0 0 36 36">
+              <path class="gauge-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="gauge-ring-fill s2" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+          </div>
+          <span class="gauge-text">90% CAP</span>
+        </div>
+      </div>
       <div class="chip-row">
-        <span class="chip">Git</span><span class="chip">n8n</span><span class="chip">Google Colab</span><span class="chip">MySQL</span><span class="chip">AWS</span><span class="chip">Jupyter</span>
+        <span class="chip s2">Git</span><span class="chip s2">n8n</span><span class="chip s2">Google Colab</span><span class="chip s2">MySQL</span><span class="chip s2">AWS</span><span class="chip s2">Jupyter</span>
       </div>
     </div>
 
@@ -1189,6 +2027,88 @@
         halo.classList.remove('active');
         hasShown = false;
       });
+    }
+    // Light Mode Theme Toggle
+    const themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+      });
+      // Check saved preference
+      if (localStorage.getItem('portfolio-theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    }
+
+    // Live simulator oscillations
+    const lossVal = document.getElementById('telemetryLoss');
+    const accVal = document.getElementById('telemetryAcc');
+    const driftVal = document.getElementById('telemetryDrift');
+    const epochVal = document.getElementById('telemetryEpoch');
+    const stepVal = document.getElementById('telemetryStep');
+    const gaugeFill = document.getElementById('telemetryGaugeFill');
+    const gaugeText = document.getElementById('telemetryGaugeText');
+    const etaVal = document.getElementById('telemetryETA');
+
+    if (lossVal && accVal && driftVal) {
+      let step = 1408;
+      let epoch = 42;
+      let etaMinutes = 2;
+      let etaSeconds = 14;
+      setInterval(() => {
+        // Smooth metric updates
+        const randLoss = (0.034 + Math.random() * 0.0015).toFixed(4);
+        const randAcc = (99.05 + Math.random() * 0.15).toFixed(2) + '%';
+        
+        lossVal.textContent = randLoss;
+        accVal.textContent = randAcc;
+        driftVal.textContent = `Stable`;
+
+        // Progress gauge and epoch filling
+        step += Math.floor(Math.random() * 4) + 1;
+        if (step > 2000) {
+          step = 1000;
+          epoch = (epoch >= 100) ? 1 : epoch + 1;
+        }
+        if (epochVal) epochVal.textContent = epoch;
+        if (stepVal) stepVal.textContent = step;
+        
+        const pctFill = (epoch / 100) * 867;
+        if (gaugeFill) gaugeFill.setAttribute('stroke-dasharray', `${pctFill}, 867`);
+        if (gaugeText) gaugeText.textContent = `${epoch}%`;
+
+        // Decay ETA seconds slowly
+        etaSeconds--;
+        if (etaSeconds < 0) {
+          etaSeconds = 59;
+          etaMinutes--;
+          if (etaMinutes < 0) {
+            etaMinutes = 5;
+            etaSeconds = 0;
+          }
+        }
+        const formattedETA = `0${etaMinutes}:${etaSeconds < 10 ? '0' + etaSeconds : etaSeconds}`;
+        if (etaVal) etaVal.textContent = formattedETA;
+      }, 1500);
+    }
+
+    // Live chart path oscillation
+    const chartPath = document.querySelector('.gauge-chart-line');
+    const chartArea = document.querySelector('.gauge-chart-area');
+    if (chartPath && chartArea) {
+      setInterval(() => {
+        const p1 = 158 + Math.random() * 4;
+        const p2 = 146 + Math.random() * 6;
+        const p3 = 106 + Math.random() * 6;
+        
+        const pathD = `M 12 ${p1} Q 150 ${p2} 282 ${p3}`;
+        const areaD = `${pathD} A 138 138 0 0 1 12 ${p1} Z`;
+        
+        chartPath.setAttribute('d', pathD);
+        chartArea.setAttribute('d', areaD);
+      }, 1500);
     }
   });
 </script>
