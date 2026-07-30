@@ -10,51 +10,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* Deep royal blue backgrounds */
-    --bg:#0A1128;
-    --bg-panel:#141F3C;
-    --bg-panel-hover:#1A284D;
-    --bg-inset:#070B1A;
+    /* Aurora glass — deep space backgrounds */
+    --bg:#0d1117;
+    --bg-panel:rgba(22,30,42,.45);
+    --bg-panel-hover:rgba(30,40,56,.65);
+    --bg-inset:rgba(255,255,255,.05);
 
-    /* Blue-tinted borders */
-    --border:#23345C;
-    --border-strong:#334A80;
+    /* Soft glass borders */
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.18);
 
     /* Crisp text */
-    --text-primary:#F0F4F8;
-    --text-secondary:#9AA9C4;
-    --text-tertiary:#6C7D9B;
+    --text-primary:#F3F8FC;
+    --text-secondary:#AAB6C8;
+    --text-tertiary:#7C879B;
 
-    /* Vibrant blue — interactive accent */
-    --accent:#3A86FF;
-    --accent-dim:#2563EB;
+    /* Aurora cyan — interactive accent (blue removed) */
+    --accent:#56CFE1;
+    --accent-dim:#2CA6A4;
 
-    /* Light royal purple — secondary accent, pairs with gold for a royal palette */
-    --royal-light:#B9A6FF;
-    --royal-light-soft:#E1D8FF;
-    --royal-light-dim:rgba(185,166,255,0.14);
-    --royal-light-line:rgba(185,166,255,0.4);
-    --royal-deep:#241B48;
-    --royal-deep-hover:#2E2358;
+    /* Aurora cyan — secondary accent / glow */
+    --royal-light:#56CFE1;
+    --royal-light-soft:#8FE0EE;
+    --royal-light-dim:rgba(86,207,225,0.18);
+    --royal-light-line:rgba(86,207,225,0.4);
+    --royal-deep:#0d2b30;
+    --royal-deep-hover:#123a41;
 
-    /* Silver divider for section rules */
-    --silver:#C4CAD6;
+    /* Subtle divider for section rules */
+    --silver:rgba(255,255,255,.12);
 
-    /* Warm gold — editorial / decorative accent */
-    --gold:#C9A66B;
-    --gold-soft:#E4D3AC;
-    --gold-dim:rgba(201,166,107,0.14);
-    --gold-line:rgba(201,166,107,0.35);
+    /* Aurora gold — editorial / decorative accent */
+    --gold:#E5BE4B;
+    --gold-soft:#F0D585;
+    --gold-dim:rgba(229,190,75,0.14);
+    --gold-line:rgba(229,190,75,0.35);
 
     /* Status colors */
-    --live:#10B981;
-    --live-dim:#0B3B2E;
-    --warn:#F59E0B;
-    --warn-dim:#4A3611;
-    --stable:#9AA9C4;
-    --stable-dim:#1E293B;
+    --live:#78B87A;
+    --live-dim:rgba(120,184,122,0.14);
+    --warn:#D98B3F;
+    --warn-dim:rgba(217,139,63,0.14);
+    --stable:#AAB6C8;
+    --stable-dim:rgba(170,182,200,0.12);
 
-    --radius:12px;
+    /* Aurora glass surfaces */
+    --glass:rgba(22,30,42,.45);
+    --glass-hover:rgba(30,40,56,.65);
+    --glass-shadow:0 10px 40px rgba(0,0,0,.45);
+    --glass-shadow-hover:0 15px 50px rgba(0,0,0,.5), 0 0 30px rgba(86,207,225,.18);
+
+    --radius:18px;
     --font-display:'Plus Jakarta Sans', sans-serif;
     --font-body:'Inter', sans-serif;
     --font-mono:'JetBrains Mono', monospace;
@@ -70,12 +76,54 @@
 
   body{
     margin:0;
-    background:var(--bg);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(44,166,164,.12), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(229,190,75,.08), transparent 40%),
+      linear-gradient(160deg,#090b10,#101722,#090b10);
+    background-attachment:fixed;
     color:var(--text-primary);
     font-family:var(--font-body);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
+
+  /* ---------- minimal line-art background ---------- */
+  #lineArt{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+    animation: lineDrift 16s ease-in-out infinite;
+  }
+  #lineArt path{
+    fill:none;
+    stroke-linecap:round;
+    stroke-dasharray:5 46;
+    filter:url(#lineGlow);
+    animation: dashFlow 13s linear infinite;
+  }
+  #lineArt path:nth-of-type(even){
+    animation-duration:18s;
+    animation-direction:reverse;
+  }
+  #lineArt path:nth-of-type(3n){
+    animation-duration:22s;
+  }
+  @keyframes lineDrift{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-14px, 8px) scale(1.01); }
+  }
+  @keyframes dashFlow{
+    to{ stroke-dashoffset:-500; }
+  }
+
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:#0b0f16; }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--accent-dim), var(--accent)); border-radius:20px; }
+  ::-webkit-scrollbar-thumb:hover{ background:linear-gradient(var(--royal-light), var(--gold)); }
 
   ::selection{ background:var(--accent-dim); color:#fff; }
 
@@ -106,8 +154,9 @@
   /* ---------- nav ---------- */
   header.nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(10,17,40,0.86);
-    backdrop-filter:blur(10px);
+    background:rgba(13,17,23,0.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
     border-bottom:1px solid var(--border);
   }
   .nav-inner{
@@ -153,16 +202,17 @@
     letter-spacing:0.02em;
     transition:color .15s ease;
   }
-  nav.links a:hover{ color:var(--text-primary); }
+  nav.links a:hover{ color:var(--accent-dim); }
   nav.links a.cta{
     display:inline-flex; align-items:center; gap:7px;
-    color:var(--bg);
-    background:var(--accent);
+    color:#fff;
+    background:linear-gradient(135deg, var(--accent-dim), var(--royal-light));
     padding:9px 16px;
     border-radius:8px;
     font-weight:600;
+    transition:box-shadow .25s ease, transform .18s ease;
   }
-  nav.links a.cta:hover{ background:#5B99FF; color:var(--bg); }
+  nav.links a.cta:hover{ box-shadow:0 0 20px rgba(86,207,225,.4); transform:translateY(-1px); color:#fff; }
 
   /* ---------- hero ---------- */
   .hero{
@@ -175,10 +225,13 @@
     display:inline-flex; align-items:center; gap:8px;
     font-family:var(--font-mono); font-size:12px;
     color:var(--live);
-    background:var(--live-dim);
+    background:rgba(16,30,24,0.55);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     border:1px solid rgba(16,185,129,0.25);
     padding:6px 12px; border-radius:20px;
     margin-bottom:32px;
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
   }
   .eyebrow .pulse{
     width:6px; height:6px; border-radius:50%; background:var(--live);
@@ -199,29 +252,13 @@
   }
   h1.name span{ color:var(--gold); }
 
-  .wave-emoji{
-    display:inline-block;
-    font-size:0.42em;
-    margin-left:16px;
-    color:var(--gold);
-    transform-origin:70% 70%;
-    animation:wiggleBounce 2.4s ease-in-out infinite;
-  }
-  @keyframes wiggleBounce{
-    0%,100%{ transform:translateY(0) rotate(0deg); }
-    15%{ transform:translateY(-7px) rotate(-10deg); }
-    30%{ transform:translateY(0) rotate(8deg); }
-    45%{ transform:translateY(-4px) rotate(-5deg); }
-    60%,85%{ transform:translateY(0) rotate(0deg); }
-  }
-
   .hero-sub{
     font-size:19px;
     color:var(--text-secondary);
     max-width:620px;
     margin:0 0 44px;
   }
-  .hero-sub strong{ color:var(--text-primary); font-weight:600; }
+  .hero-sub strong{ color:var(--accent-dim); font-weight:600; }
 
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:72px; }
   .btn{
@@ -231,10 +268,10 @@
     display:inline-flex; align-items:center; gap:9px;
     transition:all .18s ease;
   }
-  .btn.primary{ background:var(--accent); color:#fff; border-color:var(--accent); }
-  .btn.primary:hover{ background:#5B99FF; }
-  .btn.ghost{ color:var(--text-primary); }
-  .btn.ghost:hover{ border-color:var(--text-secondary); background:var(--bg-panel); }
+  .btn.primary{ background:linear-gradient(135deg, var(--accent-dim), var(--royal-light)); color:#fff; border-color:transparent; }
+  .btn.primary:hover{ box-shadow:0 0 20px rgba(86,207,225,.4), 0 0 45px rgba(86,207,225,.22); transform:translateY(-2px); }
+  .btn.ghost{ color:var(--text-primary); background:var(--bg-panel); backdrop-filter:blur(12px); }
+  .btn.ghost:hover{ border-color:var(--royal-light); background:var(--bg-panel-hover); }
 
   /* KPI tiles */
   .kpi-row{
@@ -245,13 +282,13 @@
     max-width:620px;
   }
   .kpi-main{
-    background:#F6F4EC;
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:var(--radius);
     overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.28);
-    --text-primary:#161C30;
-    --text-tertiary:#7A84A0;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:var(--glass-shadow);
     width:120px;
     height:120px;
     padding:20px;
@@ -284,13 +321,13 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    background:#F6F4EC;
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:9px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.24);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:0 4px 16px rgba(0,0,0,0.35);
     padding:10px 14px;
-    --text-primary:#161C30;
-    --text-tertiary:#7A84A0;
     min-width:64px;
   }
   .cgpa-chip .cgpa-num{
@@ -322,18 +359,16 @@
     align-items:start;
   }
   .about-body p{ color:var(--text-secondary); font-size:16px; margin:0 0 20px; }
-  .about-body p strong{ color:var(--text-primary); font-weight:600; }
+  .about-body p strong{ color:var(--accent-dim); font-weight:600; }
 
   .facts{
-    background:#F6F4EC;
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:var(--radius);
     overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.28);
-    --text-primary:#161C30;
-    --text-secondary:#4A5470;
-    --text-tertiary:#7A84A0;
-    --border:rgba(0,0,0,0.28);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:var(--glass-shadow);
   }
   .facts-head{
     font-family:var(--font-mono); font-size:11px; color:var(--text-tertiary);
@@ -345,10 +380,13 @@
     padding:16px 24px;
     border-bottom:1px solid var(--border);
     font-size:14px;
+    transition:background .15s ease;
   }
+  .fact-row:hover{ background:rgba(44,166,164,.08); }
+  .fact-row:hover .fact-val{ color:var(--accent-dim); }
   .fact-row:last-child{ border-bottom:none; }
   .fact-key{ color:var(--text-tertiary); font-family:var(--font-mono); font-size:12.5px; }
-  .fact-val{ color:var(--text-primary); text-align:right; font-weight:500; }
+  .fact-val{ color:var(--text-primary); text-align:right; font-weight:500; transition:color .15s ease; }
 
   /* ---------- projects — cell grid, 2 per row ---------- */
   .project-list{
@@ -357,25 +395,20 @@
     gap:18px;
   }
   .project-item{
-    background:#F6F4EC;
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:var(--radius);
     padding:36px 32px;
-    box-shadow:0 0 0 1px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.28);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:var(--glass-shadow);
     transition:background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
-    /* scoped overrides so title/body/tags/links inherit readable colors on the light card */
-    --text-primary:#161C30;
-    --text-secondary:#4A5470;
-    --text-tertiary:#7A84A0;
-    --bg-inset:#EAE5D8;
-    --stable:#5B6478;
-    --gold-soft:#8A6C3B;
   }
   .project-item:hover{
-    background:#EFEBE0;
+    background:var(--glass-hover);
     border-color:var(--royal-light);
-    transform:translateY(-2px);
-    box-shadow:0 0 0 1px rgba(0,0,0,0.5), 0 14px 28px rgba(0,0,0,0.34);
+    transform:translateY(-4px);
+    box-shadow:var(--glass-shadow-hover);
   }
   /* lone odd item out spans the full width so the grid never leaves a gap */
   .project-item:last-child:nth-child(odd){ grid-column:1 / -1; }
@@ -451,18 +484,34 @@
   .other-item .project-link{ flex-shrink:0; }
 
   /* ---------- stack ---------- */
-  .stack-group{ margin-bottom:32px; }
+  .stack-group{
+    margin-bottom:20px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .stack-group:hover{
+    border-color:var(--royal-light);
+    background:var(--glass-hover);
+    box-shadow:0 0 28px rgba(86,207,225,.14);
+  }
   .stack-group:last-child{ margin-bottom:0; }
   .stack-group-label{
     display:flex; align-items:center; gap:9px;
     font-family:var(--font-mono); font-size:12px; color:var(--text-tertiary);
     text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;
   }
-  .stack-group-label svg{ color:var(--gold); }
+  .stack-group-label svg{ color:var(--royal-light); }
   .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .chip{
-    font-family:var(--font-mono); font-size:13px; color:#161C30;
-    background:#F6F4EC; border:1px solid #000;
+    font-family:var(--font-mono); font-size:13px; color:var(--gold-soft);
+    background:var(--glass); border:1px solid var(--border);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
     padding:8px 15px; border-radius:20px;
     transition:border-color .15s ease, color .15s ease, background .15s ease,
                opacity .5s cubic-bezier(.34,1.56,.64,1), transform .5s cubic-bezier(.34,1.56,.64,1);
@@ -470,13 +519,15 @@
     transform:scale(0.4) translateY(10px);
   }
   .chip.pop-in{ opacity:1; transform:scale(1) translateY(0); }
-  .chip:hover{ border-color:var(--royal-light); color:#000; background:#EDE8DA; }
+  .chip:hover{ border-color:var(--gold); color:var(--gold-soft); background:var(--glass-hover); box-shadow:0 0 14px rgba(229,190,75,.28); }
 
   /* ---------- log ---------- */
   .log{
-    background:var(--bg-inset);
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:var(--radius);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
     padding:28px 32px;
     font-family:var(--font-mono); font-size:13.5px;
     color:var(--text-secondary);
@@ -505,24 +556,26 @@
   .contact-link{
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 26px;
-    background:#F6F4EC;
-    border:1px solid #000;
+    background:var(--glass);
+    border:1px solid var(--border);
     border-radius:10px;
-    box-shadow:0 0 0 1px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.28);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:var(--glass-shadow);
     font-family:var(--font-mono); font-size:14px;
-    color:#161C30;
+    color:var(--text-primary);
     transition:background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
   }
   .contact-link .left{ display:flex; align-items:center; gap:12px; }
   .contact-link svg{ color:var(--gold); }
   .contact-link:hover{
-    background:#EFEBE0;
+    background:var(--glass-hover);
     border-color:var(--royal-light);
     transform:translateY(-2px);
-    box-shadow:0 0 0 1px rgba(0,0,0,0.5), 0 14px 28px rgba(0,0,0,0.34);
+    box-shadow:var(--glass-shadow-hover);
   }
-  .contact-link .arrow{ color:#7A84A0; transition:transform .15s ease; }
-  .contact-link:hover .arrow{ transform:translateX(3px); color:var(--accent-dim); }
+  .contact-link .arrow{ color:var(--text-tertiary); transition:transform .15s ease, color .15s ease; }
+  .contact-link:hover .arrow{ transform:translateX(3px); color:var(--royal-light); }
 
   .footer-bottom{
     display:flex; justify-content:space-between; align-items:center;
@@ -555,6 +608,52 @@
 
 <div id="cursorHalo"></div>
 
+<svg id="lineArt" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#56CFE1" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#56CFE1" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E5BE4B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8FE0EE" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#2CA6A4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2CA6A4" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#56CFE1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#56CFE1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGradGold1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#F0D585" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#E5BE4B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGradGold2" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#E5BE4B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#E5BE4B" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#56CFE1" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="lineGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M -100 180 C 300 60, 700 260, 1100 90 S 1600 200, 1900 40" stroke="url(#lineGrad1)" stroke-width="1.4"/>
+  <path d="M -100 260 C 320 140, 680 340, 1080 170 S 1580 280, 1900 120" stroke="url(#lineGrad1)" stroke-width="0.8"/>
+  <path d="M -100 620 C 260 780, 640 560, 1040 760 S 1560 640, 1900 820" stroke="url(#lineGrad2)" stroke-width="1.2"/>
+  <path d="M -100 700 C 280 840, 660 640, 1060 830 S 1580 720, 1900 880" stroke="url(#lineGrad2)" stroke-width="0.7"/>
+  <path d="M -100 460 C 340 380, 620 520, 980 420 S 1500 480, 1900 400" stroke="url(#lineGrad3)" stroke-width="1"/>
+  <path d="M 200 -50 C 260 260, 140 480, 320 900" stroke="url(#lineGrad3)" stroke-width="0.6"/>
+  <path d="M 1240 -50 C 1180 280, 1320 500, 1160 900" stroke="url(#lineGrad1)" stroke-width="0.6"/>
+  <path d="M -100 340 C 280 220, 760 420, 1180 260 S 1650 360, 1900 260" stroke="url(#lineGradGold1)" stroke-width="1.1"/>
+  <path d="M -100 540 C 300 660, 700 480, 1120 620 S 1600 520, 1900 620" stroke="url(#lineGradGold2)" stroke-width="0.9"/>
+</svg>
+
 <header class="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span> <span id="typeNav1"></span><span id="typeNav2" style="color:var(--text-tertiary)"></span><span id="typeNav3"></span><span id="typeNav4" style="color:var(--text-tertiary)"></span><span class="type-cursor" id="navCursor" style="color:var(--text-primary)"></span></div>
@@ -574,7 +673,7 @@
 
   <section class="hero wrap" style="border-top:none;">
     <div class="eyebrow"><span class="pulse"></span> OPEN TO ML / AI ENGINEERING ROLES</div>
-    <h1 class="name">Anshuman Pandey <span class="wave-emoji" aria-hidden="true">(¬‿¬)</span><br><span id="typeTagline"></span><span class="type-cursor" id="taglineCursor" style="color:var(--gold)"></span></h1>
+    <h1 class="name">Anshuman Pandey<br><span id="typeTagline"></span><span class="type-cursor" id="taglineCursor" style="color:var(--gold)"></span></h1>
     <p class="hero-sub">B.Tech CSE (AI/ML), VIT Bhopal — Class of 2027. I care about the unglamorous middle part of machine learning: getting a model out of a notebook and into something that holds up under <strong>real data, real drift, and real users</strong>. Outside of that, chess is enough of an obsession that I built an engine for it instead of just playing.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn primary">
@@ -621,7 +720,7 @@
         <p>When I'm not training something, I'm probably deep in a LeetCode session in C++, or losing track of time on a chessboard.</p>
       </div>
       <div class="facts">
-        <div class="facts-head">quick_facts.json</div>
+        <div class="facts-head">Quick Facts</div>
         <div class="fact-row"><span class="fact-key">education</span><span class="fact-val">VIT Bhopal, B.Tech CSE (AI/ML)</span></div>
         <div class="fact-row"><span class="fact-key">class_of</span><span class="fact-val">2027</span></div>
         <div class="fact-row"><span class="fact-key">focus</span><span class="fact-val">MLOps · RAG · Applied DL</span></div>
@@ -719,9 +818,13 @@
         <div class="project-item-head">
           <div class="project-title-group">
             <h3 class="project-title">TalentMatch AI</h3>
-            <span class="status-tag stable"><span class="d"></span>Stable</span>
+            <span class="status-tag live"><span class="d"></span>Live</span>
           </div>
           <div class="project-links">
+            <a class="project-link demo" href="https://talentmatch-ai-se48.vercel.app/" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+              Live demo
+            </a>
             <a class="project-link" href="https://github.com/AnshumanJ28/talentmatch-ai" target="_blank" rel="noopener">
               <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
               Repo
@@ -737,27 +840,31 @@
         <div class="project-tags"><span class="tag">Groq</span><span class="tag">Gradio</span><span class="tag">Docker</span><span class="tag">Embeddings</span><span class="tag">pytest</span></div>
       </article>
 
-      <!-- NexusTwin -->
+      <!-- LLM Agent From Scratch -->
       <article class="project-item">
         <div class="project-item-head">
           <div class="project-title-group">
-            <h3 class="project-title">NexusTwin — AI Digital Twin</h3>
-            <span class="status-tag experimental"><span class="d"></span>Experimental</span>
+            <h3 class="project-title">LLM Agent From Scratch</h3>
+            <span class="status-tag live"><span class="d"></span>Live</span>
           </div>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/AnshumanJ28/NexusTwin" target="_blank" rel="noopener">
+            <a class="project-link demo" href="https://llm-agent-tez2.onrender.com" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+              Live demo
+            </a>
+            <a class="project-link" href="https://github.com/AnshumanJ28/LLM-agent" target="_blank" rel="noopener">
               <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
               Repo
             </a>
           </div>
         </div>
-        <p class="project-desc">A real-time digital twin for smart building energy monitoring — simulates live sensor data, detects anomalies against time-of-day-aware baselines, generates severity-graded alerts, and surfaces optimization recommendations through an interactive dashboard. The LSTM forecaster is flagged experimental in the repo itself — a documented data-granularity limitation, not swept under the rug.</p>
+        <p class="project-desc">A tool-using ReAct (Reason + Act) agent built without any agent framework — no LangChain, no LangGraph, no CrewAI. Everything a framework would normally hand you is hand-rolled here instead: the reasoning loop, tool schemas, memory, guardrails, and tracing — built to prove out real understanding of agent internals rather than framework glue.</p>
         <div class="project-highlights">
-          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Rolling z-score detector, time-of-day-aware baseline</div>
-          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Severity-graded alerts with cooldown deduplication</div>
-          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One class, one step() interface, orchestrates everything</div>
+          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Hand-rolled ReAct loop with auto-generated tool-calling schemas</div>
+          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Docker-sandboxed code execution tool, full run tracing</div>
+          <div class="project-highlight"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Eval harness — 4/4 suite passing, 12 unit tests passing</div>
         </div>
-        <div class="project-tags"><span class="tag">PyTorch (LSTM)</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Cloudflare Tunnel</span></div>
+        <div class="project-tags"><span class="tag">Groq</span><span class="tag">Tavily</span><span class="tag">Docker</span><span class="tag">ReAct</span></div>
       </article>
 
       <!-- Recsys -->
@@ -838,20 +945,30 @@
     <div class="other-list">
       <div class="other-item">
         <div class="other-item-main">
-          <h3>Diabatic-B5</h3>
-          <p>Retinal disease classification with EfficientNet-B5, trained on APTOS 2019, tested for generalization on RFMiD.</p>
+          <h3>NexusTwin — AI Digital Twin</h3>
+          <p>Digital twin for smart building energy monitoring — simulated live sensor data, anomaly detection, forecasting, and optimization recommendations.</p>
         </div>
-        <a class="project-link" href="https://github.com/AnshumanJ28/Diabatic-B5" target="_blank" rel="noopener">
+        <a class="project-link" href="https://github.com/AnshumanJ28/NexusTwin" target="_blank" rel="noopener">
           <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
           Repo
         </a>
       </div>
       <div class="other-item">
         <div class="other-item-main">
-          <h3>WorkFlows</h3>
-          <p>n8n automation agents — review-insights pipeline, a Gemini multi-agent system, and a market intelligence platform.</p>
+          <h3>Federated Learning Simulation</h3>
+          <p>Privacy-preserving FedAvg simulation across virtual clients (Flower + PyTorch), with client dropout modeling, an optional differential-privacy layer, and a Dockerized serving API.</p>
         </div>
-        <a class="project-link" href="https://github.com/AnshumanJ28/WorkFlows" target="_blank" rel="noopener">
+        <a class="project-link" href="https://github.com/AnshumanJ28/federated-learning-sim" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+          Repo
+        </a>
+      </div>
+      <div class="other-item">
+        <div class="other-item-main">
+          <h3>Diabatic-B5</h3>
+          <p>Retinal disease classification with EfficientNet-B5, trained on APTOS 2019, tested for generalization on RFMiD.</p>
+        </div>
+        <a class="project-link" href="https://github.com/AnshumanJ28/Diabatic-B5" target="_blank" rel="noopener">
           <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
           Repo
         </a>
@@ -1053,7 +1170,7 @@
       chipObserver.observe(group);
     });
 
-    // lavender glow follows the cursor across the entire page
+    // aurora glow follows the cursor across the entire page
     const halo = document.getElementById('cursorHalo');
     if (halo && !prefersReduced){
       let ticking = false;
